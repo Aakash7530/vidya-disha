@@ -59,7 +59,7 @@ const Header = () => {
             >
               <Search className="w-4 h-4" />
             </Link>
-            <div className="hidden sm:block"><LanguageSelector /></div>
+            {/* <div className="hidden sm:block"><LanguageSelector /></div> */}
             <ThemeToggle />
 
             {user ? (
@@ -104,7 +104,7 @@ const Header = () => {
             className="md:hidden border-t border-border/50 overflow-hidden"
           >
             <nav className="container mx-auto px-4 py-4 flex flex-col gap-1">
-              <div className="sm:hidden px-4 pb-3 pt-1"><LanguageSelector /></div>
+              {/* <div className="sm:hidden px-4 pb-3 pt-1"><LanguageSelector /></div> */}
               {navLinks.map((link) => (
                 <Link
                   key={link.name}

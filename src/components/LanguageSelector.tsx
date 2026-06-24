@@ -1,3 +1,5 @@
+const LanguageSelector = () => null; export default LanguageSelector;
+/*
 import { useEffect, useState } from "react";
 import { Languages, CheckCircle2, XCircle, Loader2, Activity, X as XIcon } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
@@ -282,3 +284,4 @@ const LanguageSelector = () => {
 };
 
 export default LanguageSelector;
+*/
