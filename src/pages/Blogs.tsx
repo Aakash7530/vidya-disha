@@ -56,8 +56,13 @@ const Blogs = () => {
   return (
     <>
       <Helmet>
-        <title>All Blogs – Vidya Disha</title>
+        <title>All Blogs & Articles | Vidya Disha</title>
         <meta name="description" content="Browse all blogs on technology, education, programming, career guidance, AI and motivation on Vidya Disha." />
+        <link rel="canonical" href={typeof window !== "undefined" ? window.location.href : ""} />
+        <meta property="og:title" content="All Blogs & Articles | Vidya Disha" />
+        <meta property="og:description" content="Browse all blogs on technology, education, programming, career guidance, AI and motivation on Vidya Disha." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={typeof window !== "undefined" ? window.location.href : ""} />
       </Helmet>
 
       <Layout>

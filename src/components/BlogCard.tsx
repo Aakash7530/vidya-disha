@@ -30,7 +30,7 @@ const BlogCard = ({ blog, index = 0, featured = false }: BlogCardProps) => {
           }`}
         />
       </Link>
-      <div className="p-5 md:p-6 flex flex-col justify-between">
+      <div className="p-4 md:p-6 flex flex-col justify-between">
         <div>
           <div className="flex items-center gap-2 mb-3">
             <span className="text-xs font-medium px-3 py-1 rounded-full bg-primary/10 text-primary">
@@ -39,7 +39,7 @@ const BlogCard = ({ blog, index = 0, featured = false }: BlogCardProps) => {
           </div>
           <Link to={`/blog/${blog.slug}`}>
             <h3 className={`font-serif font-bold leading-snug mb-2 group-hover:text-primary transition-colors ${
-              featured ? "text-xl md:text-2xl" : "text-lg"
+              featured ? "text-xl md:text-2xl" : "text-base md:text-lg"
             }`}>
               {blog.title}
             </h3>

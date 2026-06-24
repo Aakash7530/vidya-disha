@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -122,16 +122,16 @@
 @layer components {
   .glass-card {
     background: var(--gradient-glass);
-    backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
     border: 1px solid hsl(var(--border) / 0.5);
     box-shadow: var(--shadow-card);
   }
 
   .glass-nav {
     background: var(--gradient-glass);
-    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
     border-bottom: 1px solid hsl(var(--border) / 0.5);
   }
 
@@ -164,15 +164,18 @@
   }
 }
 
-/* ===== Google Translate banner fixes ===== */
+/* ===== Google Translate banner fixes (mobile-friendly) ===== */
+/* Hide the top banner frame Google injects (it pushes content down and hides the close button on small screens) */
 .goog-te-banner-frame.skiptranslate,
 iframe.goog-te-banner-frame { display: none !important; }
 body { top: 0 !important; }
 
+/* Style the inline close ("×") button if it ever appears, so it's tappable on phones */
 .goog-te-balloon-frame { display: none !important; }
 .VIpgJd-ZVi9od-l4eHX-hSRGPd,
 .VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
 
+/* Floating "Reset translation" button visible on every screen size */
 .vidya-translate-reset {
   position: fixed;
   right: 12px;

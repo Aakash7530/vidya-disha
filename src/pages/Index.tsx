@@ -59,8 +59,25 @@ const Index = () => {
       <Helmet>
         <title>Vidya Disha – ज्ञान की दिशा | Knowledge Blog Platform</title>
         <meta name="description" content="Vidya Disha is your destination for knowledge. Explore blogs on technology, education, career guidance, programming, AI, and motivation." />
-        <meta property="og:title" content="Vidya Disha – ज्ञान की दिशा" />
+        <link rel="canonical" href={typeof window !== "undefined" ? window.location.href : ""} />
+        <meta property="og:title" content="Vidya Disha – ज्ञान की दिशा | Knowledge Blog Platform" />
         <meta property="og:description" content="Explore blogs on technology, education, career guidance, programming, AI, and motivation." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={typeof window !== "undefined" ? window.location.href : ""} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Vidya Disha – ज्ञान की दिशा" />
+        <meta name="twitter:description" content="Explore blogs on technology, education, career guidance, programming, AI, and motivation." />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Vidya Disha",
+          url: typeof window !== "undefined" ? window.location.origin : "",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: typeof window !== "undefined" ? window.location.origin + "/blogs?search={search_term_string}" : "",
+            "query-input": "required name=search_term_string"
+          }
+        })}</script>
       </Helmet>
 
       <Layout>

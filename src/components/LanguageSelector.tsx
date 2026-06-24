@@ -122,16 +122,43 @@ const LanguageSelector = () => {
       window.location.reload();
       return;
     }
-    combo.value = lang === "en" ? "" : lang;
-    combo.dispatchEvent(new Event("change", { bubbles: true }));
-    if (lang === "en") window.location.reload();
+    
+    // Set combo value. For English (default), we set it to "en" or "" to revert.
+    combo.value = lang === "en" ? "en" : lang;
+    if (combo.value === "" && lang === "en") {
+        combo.value = "";
+    }
+    
+    // Dispatch native HTML event for better compatibility with Google Translate script
+    const event = document.createEvent("HTMLEvents");
+    event.initEvent("change", true, true);
+    combo.dispatchEvent(event);
+
+    // If switching back to English, forcefully attempt to restore original text via the Google Translate iframe banner
+    if (lang === "en") {
+      try {
+        const iframe = document.querySelector<HTMLIFrameElement>(".goog-te-banner-frame");
+        if (iframe) {
+          const innerDoc = iframe.contentDocument || iframe.contentWindow?.document;
+          const restoreBtn = innerDoc?.getElementById(":1.restore") as HTMLElement;
+          if (restoreBtn) restoreBtn.click();
+        }
+      } catch (e) {
+        // Cross-origin iframe issues can be ignored
+      }
+      
+      // Secondary fallback to remove Google Translate injected styles on 'body'
+      document.body.style.top = "0px";
+      document.body.style.position = "";
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const lang = e.target.value;
     setCurrent(lang);
     setCookie(lang);
-    setTimeout(() => applyGoogleTranslate(lang), 100);
+    // Increase timeout to ensure Google Translate combo is ready and reacts to the cookie change
+    setTimeout(() => applyGoogleTranslate(lang), 300);
   };
 
   const runSelfTest = () => {

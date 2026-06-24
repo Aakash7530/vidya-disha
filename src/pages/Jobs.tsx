@@ -97,6 +97,11 @@ const Jobs = () => {
           name="keywords"
           content="government jobs, sarkari naukri, state jobs, UPSC, SSC, banking exams, railway jobs, admit card, result"
         />
+        <link rel="canonical" href={typeof window !== "undefined" ? window.location.href : ""} />
+        <meta property="og:title" content="Jobs & Exams – State-wise Govt Jobs | Vidya Disha" />
+        <meta property="og:description" content="Latest Government Jobs, Sarkari Naukri, Competitive Exams, Admit Cards, Results and Syllabus updates for all Indian states. Updated daily on Vidya Disha." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={typeof window !== "undefined" ? window.location.href : ""} />
       </Helmet>
 
       <Layout>
